@@ -1,0 +1,14 @@
+version: 0.0
+os: linux
+files:
+  - source: /tmp/codigo
+    destination: /opt/tomcat
+hooks:
+  ApplicationStop:
+    - location: codedeploy-scripts/stop.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: codedeploy-scripts/start.sh
+      timeout: 300
+      runas: root
